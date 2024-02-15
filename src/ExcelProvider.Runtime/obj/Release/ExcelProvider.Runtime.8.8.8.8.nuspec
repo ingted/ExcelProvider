@@ -5,13 +5,14 @@
     <version>8.8.8.8</version>
     <authors>ExcelProvider.Runtime</authors>
     <description>Package Description</description>
+    <repository type="git" commit="bab9e2d53100074a8fa81ae94faeb72dca4e4085" />
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="ExcelDataReader" version="3.6.0" exclude="Build,Analyzers" />
         <dependency id="ExcelDataReader.DataSet" version="3.6.0" exclude="Build,Analyzers" />
-        <dependency id="FSharp.Core" version="8.0.100" exclude="Build,Analyzers" />
-        <dependency id="System.Runtime.CompilerServices.Unsafe" version="6.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Text.Encoding.CodePages" version="8.0.0" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="6.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Runtime.CompilerServices.Unsafe" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Text.Encoding.CodePages" version="5.0.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
