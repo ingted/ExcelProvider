@@ -54,7 +54,7 @@
             },
             "FSharp.Core": {
               "target": "Package",
-              "version": "[6.0.3, )",
+              "version": "[8.0.100, )",
               "generatePathProperty": true
             },
             "NETStandard.Library": {
@@ -66,12 +66,12 @@
             },
             "System.Runtime.CompilerServices.Unsafe": {
               "target": "Package",
-              "version": "[5.0.0, )",
+              "version": "[6.0.0, )",
               "generatePathProperty": true
             },
             "System.Text.Encoding.CodePages": {
               "target": "Package",
-              "version": "[5.0.0, )",
+              "version": "[8.0.0, )",
               "generatePathProperty": true
             }
           },

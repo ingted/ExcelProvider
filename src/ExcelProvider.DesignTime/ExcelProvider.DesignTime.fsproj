@@ -26,7 +26,14 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="..\ExcelProvider.Runtime\ExcelProvider.Runtime.fs" />
     <Compile Include="ExcelProvider.DesignTime.fs" />
-    <None Include="paket.references" />
+    <!--<None Include="paket.references" />-->
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="FSharp.Core" Version="8.0.100" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
   <!--<Import Project="..\..\.paket\Paket.Restore.targets" />-->
 </Project>

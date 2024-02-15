@@ -1,16 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "nw1opNwCEMNctEap8w5iCCKz9ze3QRQCRFYmfhxLeG3qIuyPkxtszYtoZZH9o5F+swnOLb/ppkx17vfC/+Ubew==",
+  "dgSpecHash": "/5RK2rVxZBO1oEyNGOKxVTSw9JQD9+vmjaaNJADB7cZbm47LYK7qBEcKMOcdAlqXio3A8J0cynyslxTWJWE4Hw==",
   "success": true,
   "projectFilePath": "G:\\coldfar_py\\ExcelProvider\\src\\ExcelProvider.Runtime\\ExcelProvider.Runtime.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\anibal\\.nuget\\packages\\exceldatareader\\3.6.0\\exceldatareader.3.6.0.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\exceldatareader.dataset\\3.6.0\\exceldatareader.dataset.3.6.0.nupkg.sha512",
-    "C:\\Users\\anibal\\.nuget\\packages\\fsharp.core\\6.0.3\\fsharp.core.6.0.3.nupkg.sha512",
+    "C:\\Users\\anibal\\.nuget\\packages\\fsharp.core\\8.0.100\\fsharp.core.8.0.100.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\anibal\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\anibal\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
-    "C:\\Users\\anibal\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512"
+    "C:\\Users\\anibal\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\anibal\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\anibal\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\anibal\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\anibal\\.nuget\\packages\\system.text.encoding.codepages\\8.0.0\\system.text.encoding.codepages.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

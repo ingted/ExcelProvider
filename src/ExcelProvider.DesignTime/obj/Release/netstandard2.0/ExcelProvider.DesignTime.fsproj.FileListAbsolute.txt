@@ -4,6 +4,9 @@ G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\ExcelDataReader.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\ExcelDataReader.DataSet.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\FSharp.Core.dll
+G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Buffers.dll
+G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Memory.dll
+G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Numerics.Vectors.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Text.Encoding.CodePages.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\cs\FSharp.Core.resources.dll
@@ -21,8 +24,7 @@ G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\zh-Hant\FSharp.Core.resources.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.fsproj.AssemblyReference.cache
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.fsproj.CoreCompileInputs.cache
+G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.sourcelink.json
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.fsproj.CopyComplete
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.pdb
-G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\FSharp.Core.xml
-G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.sourcelink.json

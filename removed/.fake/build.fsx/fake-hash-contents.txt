@@ -1,0 +1,139 @@
+
+#r "paket: groupref Build //"
+#load ".fake/build.fsx/intellisense.fsx"
+
+#if !Fake
+#r "netstandard"
+#endif
+
+#r "nuget: FAKE.Core"
+#r "nuget: Fake.DotNet.MSBuild"
+#r "nuget: Fake.IO.FileSystem"
+#r "nuget: Fake.Core.Target"
+#r "nuget: Fake.DotNet.Cli"
+open Fake.Core
+open Fake.Core.TargetOperators
+open Fake
+open Fake.IO
+open Fake.IO.FileSystemOperators
+open Fake.IO.Globbing.Operators
+
+open System
+open System.IO
+
+Target.initEnvironment ()
+
+let project = "ExcelProvider"
+
+let summary = "This library is for the .NET platform implementing a Excel type provider."
+
+Trace.log "--Installing DotNet Core SDK if necessary"
+let install = lazy DotNet.DotNet.install DotNet.DotNet.Versions.FromGlobalJson
+let getSdkPath () = install.Value
+Trace.log $"Value of getSdkPath = %A{getSdkPath}"
+
+let release = ReleaseNotes.load "RELEASE_NOTES.md"
+
+let (|Fsproj|) (projFileName:string) =
+    match projFileName with
+    | f when f.EndsWith("fsproj") -> Fsproj
+    | _                           -> failwith (sprintf "Project file %s not supported. Unknown project type." projFileName)
+
+Target.create "AssemblyInfo" (fun _ ->
+    Trace.log "--Creating new assembly files with appropriate version number and info"
+
+    let getAssemblyInfoAttributes projectName =
+        [ DotNet.AssemblyInfo.Title(projectName)
+          DotNet.AssemblyInfo.Product project
+          DotNet.AssemblyInfo.Description summary
+          DotNet.AssemblyInfo.Version release.AssemblyVersion
+          DotNet.AssemblyInfo.FileVersion release.AssemblyVersion ]
+
+    let getProjectDetails (projectPath:string) =
+        let projectName =
+            Path.GetFileNameWithoutExtension(projectPath)
+
+        let directoryName = Path.GetDirectoryName(projectPath)
+        let assemblyInfoAttributes = getAssemblyInfoAttributes projectName
+        (projectPath, projectName, directoryName, assemblyInfoAttributes)
+
+    !! "src/**/*.??proj"
+    |> Seq.map getProjectDetails
+    |> Seq.iter (fun (projFileName, _, folderName, attributes) ->
+        match projFileName with
+        | Fsproj ->
+            let fileName = folderName + @"/" + "AssemblyInfo.fs"
+            DotNet.AssemblyInfoFile.createFSharp fileName attributes))
+
+Target.create "CopyBinaries" (fun _ ->
+    Trace.log "-- Copy binaries to desired location"
+    !! "src/**/*.??proj"
+    -- "src/**/*.shproj"
+    |> Seq.map (fun f ->
+        (
+         let source =
+             (Path.GetDirectoryName f) </> "bin/Release"
+
+         let target =
+             "bin" </> (Path.GetFileNameWithoutExtension f)
+
+         source, target))
+    |> Seq.iter (fun (fromDir, toDir) -> Shell.copyDir toDir fromDir (fun _ -> true)))
+
+Target.create "Clean" (fun _ ->
+    Trace.log "--Cleaning various directories"
+    !! "bin"
+    ++ "temp"
+    ++ "tmp"
+    ++ "test/bin"
+    ++ "test/obj"
+    ++ "src/**/bin"
+    ++ "src/**/obj"
+    |> Shell.cleanDirs)
+
+Target.create "Build" (fun _ ->
+    Trace.log "--Building the binary files for distribution and the test project"
+
+    let setParams (p: DotNet.DotNet.BuildOptions) =
+        { p with
+                Configuration = DotNet.DotNet.BuildConfiguration.Release }
+
+    DotNet.DotNet.build setParams "ExcelProvider.sln")
+
+Target.create "RunTests" (fun _ ->
+    Trace.log "-- Run the unit tests using test runner"
+    let testProj =
+        "./tests/ExcelProvider.Tests/ExcelProvider.Tests.fsproj"
+    let testOptions (defaults: DotNet.DotNet.TestOptions) =
+        { defaults with
+              Configuration = DotNet.DotNet.BuildConfiguration.Release }
+    DotNet.DotNet.test testOptions testProj)
+
+Target.create "Nuget" (fun _ ->
+    Trace.log "--Create the Nuget package using Paket pack"
+    let inline dotnetSimple arg = DotNet.DotNet.Options.lift install.Value arg
+    let exitCode = DotNet.DotNet.exec dotnetSimple "paket" "pack --template ./nuget/paket.template ./bin"
+    if not exitCode.OK  then
+        failwithf "Process exit code '%d' <> 0. " exitCode.ExitCode
+    )
+
+Target.create "BuildPackage" ignore
+
+Target.create "All" ignore
+
+"Clean"
+    ==> "AssemblyInfo"
+    ==> "Build"
+    ==> "RunTests"
+    ==> "CopyBinaries"
+
+    ==> "All"
+
+"All"
+  ==> "NuGet"
+  ==> "BuildPackage"
+
+Target.runOrDefaultWithArguments "All"
+G:\coldfar_py\ExcelProvider\build.fsx
+--define:DOTNETCORE
+--define:FAKE

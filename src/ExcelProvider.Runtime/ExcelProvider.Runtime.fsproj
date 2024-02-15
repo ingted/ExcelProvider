@@ -33,14 +33,22 @@
     </None>
     <!--<None Include="paket.references" />-->
   </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="ExcelDataReader" Version="3.6.0" />
+		<PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+		<PackageReference Include="FSharp.Core" Version="8.0.100" />
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+		<PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+	</ItemGroup>
   <ItemGroup>
     <!-- Be explicit about the version of FSharp.Core since we mention it in the manual nuget package spec -->
     <PackageReference Include="FSharp.Core" Version="8.0.100" />
   </ItemGroup>
-  <!--<Target Name="BeforeBuild">
+  <Target Name="BeforeBuild">
     <MSBuild Projects="..\ExcelProvider.DesignTime\ExcelProvider.DesignTime.fsproj" Targets="Restore" />
-    <MSBuild Projects="..\ExcelProvider.DesignTime\ExcelProvider.DesignTime.fsproj" Targets="Build" Properties="Configuration=$(Configuration);TargetFramework=netstandard2.0" />
-  </Target>-->
+    <!--<MSBuild Projects="..\ExcelProvider.DesignTime\ExcelProvider.DesignTime.fsproj" Targets="Build" Properties="Configuration=$(Configuration);TargetFramework=netstandard2.0" />-->
+    <MSBuild Projects="..\ExcelProvider.DesignTime\ExcelProvider.DesignTime.fsproj" Targets="Build" Properties="TargetFramework=netstandard2.0" />
+  </Target>
   <Target Name="AfterBuild">
     <CreateItem Include="&#xD;&#xA;        ..\ExcelProvider.DesignTime\bin\$(Configuration)\netstandard2.0\*.dll;&#xD;&#xA;             &#xD;&#xA;        ..\ExcelProvider.DesignTime\bin\$(Configuration)\netstandard2.0\*.pdb">
       <Output TaskParameter="Include" ItemName="DesignTimeBinaries3" />
