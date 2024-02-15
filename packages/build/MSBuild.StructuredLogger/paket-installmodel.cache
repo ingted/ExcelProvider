@@ -1,0 +1,15 @@
+D: /lib
+D: /lib/netstandard2.0
+F: /lib/netstandard2.0/StructuredLogger.dll
+D: /package
+D: /package/services
+D: /package/services/metadata
+D: /package/services/metadata/core-properties
+F: /package/services/metadata/core-properties/fe23859e0a044492b030ab6789cb6a46.psmdcp
+D: /_rels
+F: /_rels/.rels
+F: /.signature.p7s
+F: /msbuild-structured-log-viewer.png
+F: /msbuild.structuredlogger.2.1.545.nupkg
+F: /MSBuild.StructuredLogger.nuspec
+F: /[Content_Types].xml

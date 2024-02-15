@@ -231,7 +231,7 @@ module internal ExcelAddressing =
         let _range =
             printfn "String.IsNullOrWhiteSpace %s: %b" range (String.IsNullOrWhiteSpace range)
             if String.IsNullOrWhiteSpace range
-            then workbook.Tables.[0].TableName
+            then sheetname //workbook.Tables.[0].TableName
             else range
 
         let view = getView workbook sheetname _range

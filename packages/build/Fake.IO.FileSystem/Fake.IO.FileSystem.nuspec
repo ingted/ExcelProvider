@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Fake.IO.FileSystem</id>
+    <version>5.20.4</version>
+    <authors>Steffen Forkmann,Mauricio Scheffer,Colin Bull,Matthias Dittrich</authors>
+    <owners>Steffen Forkmann,Mauricio Scheffer,Colin Bull,Matthias Dittrich</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0 OR MS-PL</license>
+    <licenseUrl>https://licenses.nuget.org/Apache-2.0%20OR%20MS-PL</licenseUrl>
+    <projectUrl>https://fake.build/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fsharp/FAKE/7305422ea912e23c1c5300b23b3d0d7d8ec7d27f/help/content/pics/logo.png</iconUrl>
+    <description>FAKE - F# Make - is a build automation tool for .NET. Tasks and dependencies are specified in a DSL which is integrated in F#.</description>
+    <releaseNotes>ENHANCEMENT: Allow users of nunit3 set environment variables in the runner, thanks @robertpi - https://github.com/fsharp/FAKE/pull/2543
+BUGFIX: Fix reportgenerator docs and compilation,thanks @matthid - https://github.com/fsharp/FAKE/issues/2535
+BUGFIX: Fix Travis build, thanks @gdziadkiewicz - https://github.com/fsharp/FAKE/pull/2549
+BUGIFX: Update Paket.Core to (better) support net5.0, thanks @pchinery - https://github.com/fsharp/FAKE/pull/2556
+BUGFIX: fix build by using Suave version to 2.5.6 in build script which is compatible with netstandard 2.0, thanks @yazeedobaid https://github.com/fsharp/FAKE/pull/2574
+ENHANCEMENT: Change NuGet feed APIs to use V3 of NuGet feed APIs, thanks @yazeedobaid https://github.com/fsharp/FAKE/pull/2574</releaseNotes>
+    <tags>build fake f#</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="Fake.Core.String" version="5.20.4" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="4.7.2" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Fake.Core.String" version="5.20.4" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="4.7.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="netstandard" targetFramework=".NETFramework4.7.2" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MAB.DotIgnore</name>
+    </assembly>
+    <members>
+        <member name="T:MAB.DotIgnore.IgnoreList">
+            <summary>
+            A list of ignore rules.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MAB.DotIgnore.IgnoreList"/> class.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.#ctor(System.Collections.Generic.IEnumerable{System.String},MAB.DotIgnore.MatchFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MAB.DotIgnore.IgnoreList"/> class.
+            </summary>
+            <param name="rules">A list of glob ignore patterns as strings.</param>
+            <param name="flags">Optional flags determining pattern matching behaviour.</param>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.#ctor(System.String,MAB.DotIgnore.MatchFlags)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MAB.DotIgnore.IgnoreList"/> class.
+            </summary>
+            <param name="ignoreFilePath">Path to a text file containing a list of ignore patterns as strings.</param>
+            <param name="flags">Optional flags determining pattern matching behaviour.</param>
+        </member>
+        <member name="P:MAB.DotIgnore.IgnoreList.Rules">
+            <summary>
+            Gets the individual ignore rules currently loaded into this list.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.AddRule(System.String,MAB.DotIgnore.MatchFlags)">
+            <summary>
+            Add a rule to the ignore list.
+            </summary>
+            <param name="rule">Glob ignore pattern as string.</param>
+            <param name="flags">Optional flags determining pattern matching behaviour.</param>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.AddRules(System.String,MAB.DotIgnore.MatchFlags)">
+            <summary>
+            Add multiple rules to the ignore list.
+            </summary>
+            <param name="ignoreFilePath">Path to a text file containing a list of glob ignore patterns as strings.</param>
+            <param name="flags">Optional flags determining pattern matching behaviour.</param>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.AddRules(System.Collections.Generic.IEnumerable{System.String},MAB.DotIgnore.MatchFlags)">
+            <summary>
+            Add multiple rules to the ignore list.
+            </summary>
+            <param name="rules">A list of glob ignore patterns as strings.</param>
+            <param name="flags">Optional flags determining pattern matching behaviour.</param>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.Clone">
+            <summary>
+            Create an exact copy of the ignore list.
+            </summary>
+            <returns>An exact copy of the ignore list.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.IsIgnored(System.IO.FileInfo)">
+            <summary>
+            Check if a file path matches any of the rules in the ignore list.
+            </summary>
+            <param name="file">FileInfo representing the file to check.</param>
+            <returns>True if the file path is ignored.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.IsIgnored(System.IO.FileInfo,MAB.DotIgnore.IgnoreLog)">
+            <summary>
+            Check if a directory path matches any of the rules in the ignore list.
+            </summary>
+            <param name="file">FileInfo representing the file to check.</param>
+            <param name="log">List of strings to append log messages to.</param>
+            <returns>True if the file path is ignored.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.IsIgnored(System.IO.DirectoryInfo)">
+            <summary>
+            Check if a directory path matches any of the rules in the ignore list.
+            </summary>
+            <param name="directory">DirectoryInfo representing the file to check.</param>
+            <returns>True if the directory path is ignored.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.IsIgnored(System.IO.DirectoryInfo,MAB.DotIgnore.IgnoreLog)">
+            <summary>
+            Check if a directory path matches any of the rules in the ignore list.
+            </summary>
+            <param name="directory">DirectoryInfo representing the file to check.</param>
+            <param name="log">List of strings to append log messages to.</param>
+            <returns>True if the directory path is ignored.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.IsIgnored(System.String,System.Boolean)">
+            <summary>
+            Check if a string path matches any of the rules in the ignore list.
+            </summary>
+            <param name="path">String representing the path to check.</param>
+            <param name="pathIsDirectory">Should be set True if the path represents a directory, False if it represents a file.</param>
+            <returns>True if the file or directory path is ignored.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.IsIgnored(System.String,System.Boolean,MAB.DotIgnore.IgnoreLog)">
+            <summary>
+            Check if a string path matches any of the rules in the ignore list.
+            </summary>
+            <param name="path">String representing the path to check.</param>
+            <param name="pathIsDirectory">Should be set True if the path represents a directory, False if it represents a file.</param>
+            <param name="log">List of strings to append log messages to.</param>
+            <returns>True if the file or directory path is ignored.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreList.RemoveRule(System.String)">
+            <summary>
+            Remove a rule from the ignore list.
+            </summary>
+            <param name="rule">Glob ignore pattern as string.</param>
+        </member>
+        <member name="T:MAB.DotIgnore.IgnoreLog">
+            <summary>
+            Keeps track of which rules matched which path (including overrides etc).
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreLog.ToString">
+            <summary>
+            Returns a "pretty printed" string representation of the rule match log.
+            </summary>
+            <returns>String representation of the match log.</returns>
+        </member>
+        <member name="T:MAB.DotIgnore.IgnoreRule">
+            <summary>
+            A rule which can be used to determine whether a file path should be ignored.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreRule.#ctor(System.String,MAB.DotIgnore.MatchFlags,System.Nullable{System.Int32})">
+            <summary>
+            Initializes a new instance of the <see cref="T:MAB.DotIgnore.IgnoreRule"/> class.
+            </summary>
+            <param name="pattern">A glob pattern specifying file(s) this rule should ignore.</param>
+            <param name="flags">Optional flags determining pattern matching behaviour.</param>
+            <param name="lineNumber">Optional line number for logging purposes.</param>
+        </member>
+        <member name="P:MAB.DotIgnore.IgnoreRule.MatchFlags">
+            <summary>
+            Gets the <see cref="P:MAB.DotIgnore.IgnoreRule.MatchFlags"/> set for this rule.
+            </summary>
+        </member>
+        <member name="P:MAB.DotIgnore.IgnoreRule.OriginalPattern">
+            <summary>
+            Gets the original pattern string passed into the constructor.
+            </summary>
+        </member>
+        <member name="P:MAB.DotIgnore.IgnoreRule.Pattern">
+            <summary>
+            Gets the pre-processed pattern string after basic parsing.
+            </summary>
+        </member>
+        <member name="P:MAB.DotIgnore.IgnoreRule.PatternFlags">
+            <summary>
+            Gets the <see cref="P:MAB.DotIgnore.IgnoreRule.PatternFlags"/> set for the parsed rule pattern.
+            </summary>
+        </member>
+        <member name="P:MAB.DotIgnore.IgnoreRule.LineNumber">
+            <summary>
+            Gets or sets the line number of the pattern if it was loaded from a file.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreRule.IsMatch(System.IO.FileInfo)">
+            <summary>
+            Check if a file path matches the rule pattern.
+            </summary>
+            <param name="file">FileInfo representing the file to check.</param>
+            <returns>True if the file path matches the rule pattern.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreRule.IsMatch(System.IO.DirectoryInfo)">
+            <summary>
+            Check if a directory path matches the rule pattern.
+            </summary>
+            <param name="directory">DirectoryInfo representing the directory to check.</param>
+            <returns>True if the directory path matches the rule pattern.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreRule.IsMatch(System.String,System.Boolean)">
+            <summary>
+            Check if a path matches the rule pattern.
+            </summary>
+            <param name="path">String representing the path to check.</param>
+            <param name="pathIsDirectory">Should be set True if the path represents
+            a directory, False if it represents a file.</param>
+            <returns>True if the file or directory path matches the rule pattern.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.IgnoreRule.ToString">
+            <summary>
+            Gets a string representation showing the original pattern
+            (plus the line number if present).
+            </summary>
+            <returns>The original pattern, plus the line number if present.</returns>
+        </member>
+        <member name="T:MAB.DotIgnore.Matcher">
+            <summary>
+            Regular expression matching of paths against ignore patterns.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.Matcher.TryMatch(System.Text.RegularExpressions.Regex,System.String)">
+            <summary>
+            Check if a path matches a regular expression.
+            Assumes no match if the match cannot be performed (e.g an exception is thrown).
+            </summary>
+            <param name="rx">A <see cref="T:System.Text.RegularExpressions.Regex"/> instance.</param>
+            <param name="path">The path to try and match.</param>
+            <returns>True if the path matches the regular expression.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.Matcher.ToRegex(System.String)">
+            <summary>
+            Converts an ignore pattern into a .NET regular expression pattern.
+            </summary>
+            <param name="pattern">The ignore pattern to convert.</param>
+            <returns>A valid .NET regular expression pattern string, or null if the original pattern was invalid.</returns>
+        </member>
+        <member name="T:MAB.DotIgnore.MatchFlags">
+            <summary>
+            A set of flags determining the behaviour of ignore rule matches.
+            </summary>
+        </member>
+        <member name="F:MAB.DotIgnore.MatchFlags.NONE">
+            <summary>
+            Patterns are case-sensitive, single asterisks in patterns match path slashes
+            </summary>
+        </member>
+        <member name="F:MAB.DotIgnore.MatchFlags.CASEFOLD">
+            <summary>
+            If set, pattern matches are case-insensitive
+            </summary>
+        </member>
+        <member name="F:MAB.DotIgnore.MatchFlags.PATHNAME">
+            <summary>
+            If set, single asterisks in patterns should not match path slashes
+            </summary>
+        </member>
+        <member name="T:MAB.DotIgnore.PatternFlags">
+            <summary>
+            Informational flags telling us about a parsed pattern.
+            </summary>
+        </member>
+        <member name="F:MAB.DotIgnore.PatternFlags.NONE">
+            <summary>
+            Pattern is a basic pattern
+            </summary>
+        </member>
+        <member name="F:MAB.DotIgnore.PatternFlags.NEGATION">
+            <summary>
+            Pattern starts with '!'
+            </summary>
+        </member>
+        <member name="F:MAB.DotIgnore.PatternFlags.ABSOLUTE_PATH">
+            <summary>
+            Pattern starts with '/'
+            </summary>
+        </member>
+        <member name="F:MAB.DotIgnore.PatternFlags.DIRECTORY">
+            <summary>
+            Pattern should match only directories
+            </summary>
+        </member>
+        <member name="T:MAB.DotIgnore.RuleLine">
+            <summary>
+            Represents a line specifying a rule in an ignore file.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.RuleLine.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MAB.DotIgnore.RuleLine"/> struct.
+            </summary>
+            <param name="pattern">The ignore rule pattern.</param>
+        </member>
+        <member name="M:MAB.DotIgnore.RuleLine.#ctor(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:MAB.DotIgnore.RuleLine"/> struct.
+            </summary>
+            <param name="lineNumber">The line number.</param>
+            <param name="pattern">The ignore rule pattern.</param>
+        </member>
+        <member name="P:MAB.DotIgnore.RuleLine.LineNumber">
+            <summary>
+            Gets the line number.
+            </summary>
+        </member>
+        <member name="P:MAB.DotIgnore.RuleLine.Pattern">
+            <summary>
+            Gets the ignore rule pattern.
+            </summary>
+        </member>
+        <member name="T:MAB.DotIgnore.Utils">
+            <summary>
+            Utility functions.
+            </summary>
+        </member>
+        <member name="M:MAB.DotIgnore.Utils.NormalisePath(System.String)">
+            <summary>
+            Converts a path to a UNIX-style path (with forward-slash directory separators).
+            </summary>
+            <param name="path">The path to convert.</param>
+            <returns>A UNIX-style path string.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.Utils.StartsWithCI(System.String,System.String)">
+            <summary>
+            Determines whether the beginning of this string instance matches the specified string.
+            </summary>
+            <param name="s">The string instance.</param>
+            <param name="value">The string to compare.</param>
+            <returns>true if value matches the beginning of this string; otherwise, false.</returns>
+        </member>
+        <member name="M:MAB.DotIgnore.Utils.EndsWithCI(System.String,System.String)">
+            <summary>
+            Determines whether the end of this string instance matches the specified string.
+            </summary>
+            <param name="s">The string instance.</param>
+            <param name="value">The string to compare.</param>
+            <returns>true if value matches the end of this string; otherwise, false.</returns>
+        </member>
+    </members>
+</doc>

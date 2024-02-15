@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fake.Core.ReleaseNotes</name></assembly>
+<members>
+<member name="P:Fake.Core.ReleaseNotes.ReleaseNotes.Date">
+<summary>
+ Release date
+</summary>
+</member>
+<member name="P:Fake.Core.ReleaseNotes.ReleaseNotes.SemVer">
+<summary>
+ Semantic version
+</summary>
+</member>
+<member name="P:Fake.Core.ReleaseNotes.ReleaseNotes.NugetVersion">
+<summary>
+ The nuget package version.
+</summary>
+</member>
+<member name="P:Fake.Core.ReleaseNotes.ReleaseNotes.AssemblyVersion">
+<summary>
+ The parsed version.
+</summary>
+</member>
+<member name="T:Fake.Core.ReleaseNotes.ReleaseNotes">
+<summary>
+ Contains the parsed information of the release notes text file.
+</summary>
+</member>
+<member name="M:Fake.Core.ReleaseNotes.load(System.String)">
+<summary>
+ Parses a Release Notes text file and returns the lastest release notes.
+
+ ## Parameters
+  - `fileName` - Release notes text file name
+</summary>
+</member>
+<member name="M:Fake.Core.ReleaseNotes.parse(System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Parses a Release Notes text and returns the lastest release notes.
+
+ ## Parameters
+  - `data` - Release notes text
+</summary>
+</member>
+<member name="M:Fake.Core.ReleaseNotes.parseAll(System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Parses a Release Notes text and returns all release notes.
+
+ ## Parameters
+  - `data` - Release notes text
+</summary>
+</member>
+<member name="M:Fake.Core.ReleaseNotes.parseAllComplex(System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Parse &quot;complex&quot; release notes text sequence
+</summary>
+</member>
+<member name="M:Fake.Core.ReleaseNotes.parseSimple(System.String)">
+<summary>
+ Parse simple release notes sequence
+</summary>
+</member>
+<member name="T:Fake.Core.ReleaseNotes">
+<summary>
+ Contains helpers which allow to parse Release Notes text files. Either &quot;simple&quot; or &quot;complex&quot; format is accepted.
+
+ ## Formats
+
+ ### Simple format
+
+     * 1.1.10 - Support for heterogeneous XML attributes. Make CsvFile re-entrant.
+     * 1.1.9 - Infer booleans for ints that only manifest 0 and 1.
+
+ ### Complex format
+
+     ### New in 1.1.10 (Released 2013/09/12)
+     * Support for heterogeneous XML attributes.
+     * Make CsvFile re-entrant. 
+     * Support for compressed HTTP responses. 
+     * Fix JSON conversion of 0 and 1 to booleans.
+
+     ### New in 1.1.9 (Released 2013/07/21)
+     * Infer booleans for ints that only manifest 0 and 1.    
+     * Support for partially overriding the Schema in CsvProvider.
+     * PreferOptionals and SafeMode parameters for CsvProvider.
+
+ ## Sample
+
+     
+     #r &quot;paket:
+     nuget Fake.Core.ReleaseNotes //&quot;
+     
+     let release = ReleaseNotes.load &quot;RELEASE_NOTES.md&quot;
+
+     Target &quot;AssemblyInfo&quot; (fun _ -&gt;
+         CreateFSharpAssemblyInfo &quot;src/Common/AssemblyInfo.fs&quot;
+           [ Attribute.Title project
+             Attribute.Product project
+             Attribute.Description summary
+             Attribute.Version release.AssemblyVersion
+             Attribute.FileVersion release.AssemblyVersion]
+     )
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.Changelog.Entries">
+<summary>
+ The change log entries
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.Changelog.Unreleased">
+<summary>
+ The Unreleased section
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.Changelog.Description">
+<summary>
+ The description
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.Changelog.Header">
+<summary>
+ the header line
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.Changelog.LatestEntry">
+<summary>
+ the latest change log entry
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.ChangelogEntry.IsYanked">
+<summary>
+ True, if the entry was yanked 
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.ChangelogEntry.Changes">
+<summary>
+ The parsed list of changes
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.ChangelogEntry.Description">
+<summary>
+ a descriptive text (after the header)
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.ChangelogEntry.Date">
+<summary>
+ Release DateTime
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.ChangelogEntry.SemVer">
+<summary>
+ Semantic version
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.ChangelogEntry.NuGetVersion">
+<summary>
+ the NuGet package version
+</summary>
+</member>
+<member name="P:Fake.Core.Changelog.ChangelogEntry.AssemblyVersion">
+<summary>
+ the parsed Version
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog.Change.Custom">
+<summary>
+ Custom entry (Header, Description)
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog.Change.Security">
+<summary>
+ to invite users to upgrade in case of vulnerabilities
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog.Change.Fixed">
+<summary>
+ for any bug fixes
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog.Change.Removed">
+<summary>
+ for deprecated features removed in this release
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog.Change.Deprecated">
+<summary>
+ for once-stable features removed in upcoming releases
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog.Change.Changed">
+<summary>
+ for changes in existing functionality
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog.Change.Added">
+<summary>
+ for new features
+</summary>
+</member>
+<member name="M:Fake.Core.Changelog.promoteUnreleased(System.String,Fake.Core.Changelog.Changelog)">
+<summary>
+ Promotes the `Unreleased` section of a changelog
+ to a new changelog entry with the given version
+
+ ## Parameters
+ - `version` - The version (in NuGet-Version format, e.g. `3.13.4-alpha1.212`
+ - `changelog` - The changelog to promote
+
+ ## Returns
+ The promoted changelog
+</summary>
+</member>
+<member name="M:Fake.Core.Changelog.save(System.String,Fake.Core.Changelog.Changelog)">
+<summary>
+ Saves a Changelog to a text file.
+
+ ## Parameters
+  - `filename` - Changelog text file name
+  - `changelog` - the changelog data
+</summary>
+</member>
+<member name="M:Fake.Core.Changelog.load(System.String)">
+<summary>
+ Parses a Changelog text file and returns the lastest changelog.
+
+ ## Parameters
+  - `filename` - Changelog text file name
+ 
+ ## Returns
+ The loaded changelog (or throws an exception, if the changelog could not be parsed)
+</summary>
+</member>
+<member name="M:Fake.Core.Changelog.parse(System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Parses a change log text and returns the change log.
+
+ ## Parameters
+  - `data` - change log text
+</summary>
+</member>
+<member name="T:Fake.Core.Changelog">
+<summary>
+ Contains helpers which allow to parse Change log text files.
+ These files have to be in a format as described on http://keepachangelog.com/en/1.1.0/
+
+ ## Format
+
+ ```markdown
+ # Changelog
+
+ All notable changes to this project will be documented in this file.
+
+ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+ ## [Unreleased]
+
+ ## [0.1.0] - 2020-03-17
+ First release
+
+ ### Added
+ - This release already has lots of features
+
+ [0.1.0]: https://github.com/user/MyCoolNewLib.git/releases/tag/v0.1.0
+ ```
+
+ ## Sample
+
+     let changelogFile = &quot;CHANGELOG.md&quot;
+     let newVersion = &quot;1.0.0&quot;
+     
+     Target.create &quot;AssemblyInfo&quot; (fun _ -&gt;
+         let changelog = changeLogFile |&gt; Changelog.load
+         CreateFSharpAssemblyInfo &quot;src/Common/AssemblyInfo.fs&quot;
+           [ Attribute.Title project
+             Attribute.Product project
+             Attribute.Description summary
+             Attribute.Version changelog.LatestEntry.AssemblyVersion
+             Attribute.FileVersion changelog.LatestEntry.AssemblyVersion]
+     )
+
+     Target.create &quot;Promote Unreleased to new version&quot; (fun _ -&gt;
+         let newChangelog = 
+             changelogFile 
+             |&gt; ChangeLog.load
+             |&gt; ChangeLog.promoteUnreleased newVersion
+             |&gt; ChangeLog.save changelogFile
+     )
+</summary>
+</member>
+</members>
+</doc>

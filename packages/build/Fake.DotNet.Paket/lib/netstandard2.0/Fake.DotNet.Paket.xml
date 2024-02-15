@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fake.DotNet.Paket</name></assembly>
+<members>
+<member name="T:Fake.DotNet.Paket.PaketRestoreParams">
+<summary>
+ Paket restore packages type
+</summary>
+</member>
+<member name="T:Fake.DotNet.Paket.PaketPushParams">
+<summary>
+ Paket push parameter type
+</summary>
+</member>
+<member name="T:Fake.DotNet.Paket.PaketPackParams">
+<summary>
+ Paket pack parameter type
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.restore(Microsoft.FSharp.Core.FSharpFunc{Fake.DotNet.Paket.PaketRestoreParams,Fake.DotNet.Paket.PaketRestoreParams})">
+<summary>
+ Restores all packages referenced in either a paket.dependencies or a paket.references file using Paket
+ ## Parameters
+
+  - `setParams` - Function used to manipulate the default parameters.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.getDependenciesForReferencesFile(System.String)">
+<summary>
+ Returns the dependencies from specified paket.references file
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.push(Microsoft.FSharp.Core.FSharpFunc{Fake.DotNet.Paket.PaketPushParams,Fake.DotNet.Paket.PaketPushParams})">
+<summary>
+ Pushes all NuGet packages in the working dir to the server by using Paket push.
+ ## Parameters
+
+  - `setParams` - Function used to manipulate the default parameters.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.pushFiles(Microsoft.FSharp.Core.FSharpFunc{Fake.DotNet.Paket.PaketPushParams,Fake.DotNet.Paket.PaketPushParams},System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Pushes the given NuGet packages to the server by using Paket push.
+ ## Parameters
+
+  - `setParams` - Function used to manipulate the default parameters.
+  - `files` - The files to be pushed to the server.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.pack(Microsoft.FSharp.Core.FSharpFunc{Fake.DotNet.Paket.PaketPackParams,Fake.DotNet.Paket.PaketPackParams})">
+<summary>
+ Creates a new NuGet package by using Paket pack on all paket.template files in the working directory.
+ ## Parameters
+
+  - `setParams` - Function used to manipulate the default parameters.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.PaketRestoreDefaults">
+<summary>
+ Paket restore default parameters
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.PaketPushDefaults">
+<summary>
+ Paket push default parameters
+</summary>
+</member>
+<member name="M:Fake.DotNet.Paket.PaketPackDefaults">
+<summary>
+ Paket pack default parameters
+</summary>
+</member>
+<member name="T:Fake.DotNet.Paket">
+<summary>
+ Contains helper functions and task which allow to inspect, create and publish [NuGet](https://www.nuget.org/) packages with [Paket](http://fsprojects.github.io/Paket/index.html).
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.IncludePDBs">
+<summary>
+ With the `IncludePDBs` switch you can tell `paket` to pack pdbs into the package.
+ this only works for paket.template files of type &apos;Project&apos;.
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.DevelopmentDependency">
+<summary>
+ If set to `true` this will tell `nuget`/`paket` that this is a development dependency
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.RequireLicenseAcceptance">
+<summary>
+ If set to `true` this will tell `nuget`/`paket` to prompt the user for
+ the acceptance of the provided license
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.ExcludedDependencies">
+<summary>
+ A list of excluded dependencies
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Dependencies">
+<summary>
+ A list of dependencies to other packages
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.FrameworkAssemblies">
+<summary>
+ A list of referenced framework assemblies
+ if omitted all used Framework assemblies will be used by `paket`
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.References">
+<summary>
+ A list of references
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Files">
+<summary>
+ The included or excluded files (use this if the `TemplateType` is `File`)
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Tags">
+<summary>
+ a list of tags
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Copyright">
+<summary>
+ the copyright information
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.IconUrl">
+<summary>
+ URL to an icon
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.ProjectUrl">
+<summary>
+ URL to the where the project of the package is hosted
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.LicenseUrl">
+<summary>
+ URL to the license of the package
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Language">
+<summary>
+ The package language
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Summary">
+<summary>
+ a short summary (line by line)
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.ReleaseNotes">
+<summary>
+ the release notes (line by line)
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Owners">
+<summary>
+ A list of package owners
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Authors">
+<summary>
+ a list of authors for the nuget package.
+ If omitted, `paket`will use reflection to obtain the value of the `AssemblyCompanyAttribute`.
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Title">
+<summary>
+ The title of the package
+ If omitted, `paket` will use reflection to obtain the value of the `AssemblyTitleAttribute`.
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Description">
+<summary>
+ The package description
+ If omitted, `paket` will use reflection to obtain the value of the `AssemblyDescriptionAttribute`.
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Version">
+<summary>
+ The package version.
+ If omitted, `paket` will use reflection to obtain the value of the `AssemblyInformationalVersionAttribute` or if that is missing the `AssemblyVersionAttribute`.
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.Id">
+<summary>
+ The NuGet Package ID
+ If omitted, `paket` will use reflection to determine the assembly name.
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.TemplateType">
+<summary>
+ The type of the template (`File` or `Project`)
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.PaketTemplateParams.TemplateFilePath">
+<summary>
+ The file path to the `paket.template` file
+ if omitted, a `paket.template` file will be created in the current directory
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketTemplateParams">
+<summary>
+ Contains the different parameters to create a paket.template file
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketDependencyVersionInfo.AnyVersion">
+<summary>
+ no explicit version
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketDependencyVersionInfo.GreaterOrEqual">
+<summary>
+ For example &gt;= 2.0
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketDependencyVersionInfo.GreaterOrEqualSafe">
+<summary>
+ For example ~&gt; 2.0
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketDependencyVersion.LOCKEDVERSION">
+<summary>
+ Use the currently locked version as dependency
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketDependencyVersion.CURRENTVERSION">
+<summary>
+ Use the currently loaded version as dependency
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketDependencyVersion.Version">
+<summary>
+ A specific version string
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketFileInfo.Exclude">
+<summary>
+ Explicitely exclude a file
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate.PaketFileInfo.Include">
+<summary>
+ Include a file and store it into a targed
+</summary>
+</member>
+<member name="M:Fake.DotNet.PaketTemplate.create(Microsoft.FSharp.Core.FSharpFunc{Fake.DotNet.PaketTemplate.PaketTemplateParams,Fake.DotNet.PaketTemplate.PaketTemplateParams})">
+<summary>
+ Creates a paket.template file with the given filename
+ Will fail if the file could not be written
+
+ ## Parameters
+  - `setParams` - Function used to manipulate the default `PaketTemplateParams` value
+
+ ## Sample usage
+
+    Target &quot;Create Paket Template&quot; (fun _ -&gt;
+       PaketTemplate (fun p -&gt;
+            { p with
+                TemplateFilePath = Some &quot;./deploytemp/paket.template&quot;
+                Id = Some &quot;My.New.Package&quot;
+                Version = Some &quot;0.0.1-alpha&quot;
+                Authors = [&quot;Me&quot;; &quot;You&quot;; &quot;Someone Other&quot;]
+                Files = [ Include (&quot;./**/*.dll&quot;, &quot;/lib/dlls&quot;)
+                          Exclude &quot;./Foo/bar.dll&quot;
+                          Include (&quot;./*.jpg&quot;, &quot;/images&quot;) ]
+                Dependencies = [ &quot;Paket1.FOO&quot;, AnyVersion
+                                 &quot;Paket2.BAR&quot;, GreaterOrEqual CURRENTVERSION
+                                 &quot;Paket3.BAZ&quot;, GreaterOrEqualSafe LOCKEDVERSION
+                                 &quot;Paket4.BOO&quot;, GreaterOrEqual (Version &quot;1.2.3&quot;) ]
+            }
+        )
+    )
+</summary>
+</member>
+<member name="P:Fake.DotNet.PaketTemplate.DefaultPaketTemplateParams">
+<summary>
+ The default parameters for the generation of the `paket.template`
+
+ ## Defaults
+
+   - TemplateFilePath - `None`
+   - TemplateType - `Project`
+   - Id - `None`
+   - Version - `None`
+   - Description - `None`
+   - Title - `None`
+   - Authors - `Empty list`
+   - Owners - `Empty list`
+   - ReleaseNotes - `Empty list`
+   - Summary - `Empty list`
+   - Language - `None`
+   - LicenseUrl - `None`
+   - ProjectUrl - `None`
+   - IconUrl - `None`
+   - Copyright - `None`
+   - Tags - `Empty list`
+   - Files - `Empty list`
+   - References - `Empty list`
+   - FrameworkAssemblies - `Empty list`
+   - Dependencies - `Empty list`
+   - ExcludedDependencies - `Empty list`
+   - RequireLicenseAcceptance - `None`
+   - DevelopmentDependency - `None`
+   - IncludePDBs - `None`
+</summary>
+</member>
+<member name="T:Fake.DotNet.PaketTemplate">
+<summary>
+ Contains helper functions and task which allow it to generate a paket.template
+ file for [Paket](http://fsprojects.github.io/Paket/index.html)
+</summary>
+</member>
+</members>
+</doc>

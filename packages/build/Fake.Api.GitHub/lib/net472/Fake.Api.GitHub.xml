@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fake.Api.GitHub</name></assembly>
+<members>
+<member name="P:Fake.Api.GitHub.CreateReleaseParams.TargetCommitish">
+<summary>
+ Commit hash or branch name that will be used to create the release tag.
+ Is not used if the tag already exists.
+ If left unspecified, and the tag does not already exist, the default branch is used instead.
+</summary>
+</member>
+<member name="P:Fake.Api.GitHub.CreateReleaseParams.Prerelease">
+<summary>
+ Indicates whether the release will be created as a prerelease
+</summary>
+</member>
+<member name="P:Fake.Api.GitHub.CreateReleaseParams.Draft">
+<summary>
+ Indicates whether the release will be created as a draft
+</summary>
+</member>
+<member name="P:Fake.Api.GitHub.CreateReleaseParams.Body">
+<summary>
+ The text describing the contents of the release
+</summary>
+</member>
+<member name="P:Fake.Api.GitHub.CreateReleaseParams.Name">
+<summary>
+ The name of the release
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.downloadAssets(System.String,Microsoft.FSharp.Control.FSharpAsync{Fake.Api.GitHub.Release})">
+<summary>
+ Downloads all assets for the specified release to the specified destination
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.downloadAsset(System.Int32,System.String,Microsoft.FSharp.Control.FSharpAsync{Fake.Api.GitHub.Release})">
+<summary>
+ Downloads the asset with the specified id to the specified destination
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.getReleaseByTag(System.String,System.String,System.String,Microsoft.FSharp.Control.FSharpAsync{Octokit.GitHubClient})">
+<summary>
+ Gets release with the specified tag for the specified repository
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.getLastRelease(System.String,System.String,Microsoft.FSharp.Control.FSharpAsync{Octokit.GitHubClient})">
+<summary>
+ Gets the latest release for the specified repository
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.publishDraft(Microsoft.FSharp.Control.FSharpAsync{Fake.Api.GitHub.Release})">
+<summary>
+ Publishes the specified release by removing its draft status
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.uploadFiles(System.Collections.Generic.IEnumerable{System.String},Microsoft.FSharp.Control.FSharpAsync{Fake.Api.GitHub.Release})">
+<summary>
+ Uploads and attaches the specified files to the specified release
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.uploadFile(System.String,Microsoft.FSharp.Control.FSharpAsync{Fake.Api.GitHub.Release})">
+<summary>
+ Uploads and attaches the specified file to the specified release
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.draftNewRelease(System.String,System.String,System.String,System.Boolean,System.Collections.Generic.IEnumerable{System.String},Microsoft.FSharp.Control.FSharpAsync{Octokit.GitHubClient})">
+<summary>
+ Creates a draft GitHub Release for the specified repository and tag name
+ ## Parameters
+ - `owner` - the repository&apos;s owner
+ - `repoName` - the repository&apos;s name
+ - `tagName` - the name of the tag to use for this release
+ - `prerelease` - indicates whether the release will be created as a prerelease
+ - `notes` - collection of release notes that will be inserted into the body of the release
+ - `client` - GitHub API v3 client
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.createRelease(System.String,System.String,System.String,Microsoft.FSharp.Core.FSharpFunc{Fake.Api.GitHub.CreateReleaseParams,Fake.Api.GitHub.CreateReleaseParams},Microsoft.FSharp.Control.FSharpAsync{Octokit.GitHubClient})">
+<summary>
+ Creates a GitHub Release for the specified repository and tag name
+ ## Parameters
+ - `owner` - the repository&apos;s owner
+ - `repoName` - the repository&apos;s name
+ - `tagName` - the name of the tag to use for this release
+ - `setParams` - function used to override the default release parameters
+ - `client` - GitHub API v3 client
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.createGHEClientWithToken(System.String,System.String)">
+<summary>
+ Creates a GitHub API v3 client to GitHub Enterprise server at the specified url using the specified token
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.createGHEClient(System.String,System.String,System.String)">
+<summary>
+ Creates a GitHub API v3 client to GitHub Enterprise server at the specified url using the specified credentials
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.createClientWithToken(System.String)">
+<summary>
+ Creates a GitHub API v3 client using the specified token
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.createClient(System.String,System.String)">
+<summary>
+ Creates a GitHub API v3 client using the specified credentials
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.retryWithArg``2(System.Int32,Microsoft.FSharp.Control.FSharpAsync{``0},Microsoft.FSharp.Core.FSharpFunc{``0,Microsoft.FSharp.Control.FSharpAsync{``1}})">
+<summary>
+ Retry the Octokit action count times after input succeed
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.retry``1(System.Int32,Microsoft.FSharp.Control.FSharpAsync{``0})">
+<summary>
+ Retry the Octokit action count times
+</summary>
+</member>
+<member name="M:Fake.Api.GitHub.captureAndReraise``1(System.Exception)">
+<summary>
+ A version of &apos;reraise&apos; that can work inside computation expressions
+</summary>
+</member>
+<member name="T:Fake.Api.GitHub">
+<summary>
+ Contains tasks to interact with [GitHub](https://github.com/) releases
+
+ ### Sample
+
+        Target.create &quot;GitHubRelease&quot; (fun _ -&gt;
+            let token =
+                match Environment.environVarOrDefault &quot;github_token&quot; &quot;&quot; with
+                | s when not (System.String.IsNullOrWhiteSpace s) -&gt; s
+                | _ -&gt; failwith &quot;please set the github_token environment variable to a github personal access token with repro access.&quot;
+        
+            let files =
+                runtimes @ [ &quot;portable&quot;; &quot;packages&quot; ]
+                |&gt; List.map (fun n -&gt; sprintf &quot;release/dotnetcore/Fake.netcore/fake-dotnetcore-%s.zip&quot; n)
+        
+            GitHub.createClientWithToken token
+            |&gt; GitHub.draftNewRelease gitOwner gitName release.NugetVersion (release.SemVer.PreRelease &lt;&gt; None) release.Notes
+            |&gt; GitHub.uploadFiles files
+            |&gt; GitHub.publishDraft
+            |&gt; Async.RunSynchronously)
+
+</summary>
+</member>
+</members>
+</doc>

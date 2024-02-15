@@ -1,0 +1,16 @@
+D: /lib
+D: /lib/netstandard2.0
+F: /lib/netstandard2.0/Fantomas.Extras.dll
+D: /package
+D: /package/services
+D: /package/services/metadata
+D: /package/services/metadata/core-properties
+F: /package/services/metadata/core-properties/323dbd9bdd0e4dcdad32d9bbe37e987c.psmdcp
+D: /_rels
+F: /_rels/.rels
+F: /.signature.p7s
+F: /fantomas.extras.4.5.12.nupkg
+F: /Fantomas.Extras.nuspec
+F: /fantomas_logo.png
+F: /LICENSE.md
+F: /[Content_Types].xml

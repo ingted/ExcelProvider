@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Fantomas.Extras.nuspec" Id="RB0CBBEAD9C66165D" />
+  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/323dbd9bdd0e4dcdad32d9bbe37e987c.psmdcp" Id="R9D77E4FD5EC5F5E2" />
+</Relationships>

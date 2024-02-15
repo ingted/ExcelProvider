@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fake.Tools.Git</name></assembly>
+<members>
+<member name="M:Fake.Tools.Git.CommandHelper.findGitDir(System.String)">
+<summary>
+ Searches for a .git directory in the specified directory or any parent directory.
+ &lt;exception href=&quot;System.InvalidOperationException&quot;&gt;Thrown when no .git directory is found.&lt;/exception&gt;
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.fixPath(System.String)">
+<summary>
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.runSimpleGitCommand(System.String,System.String)">
+<summary>
+ Runs the git command and returns the first line of the result.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.showGitCommand(System.String,System.String)">
+<summary>
+ Runs the given git command, waits for its completion.
+ This version doesn&apos;t throw an exception if an error occurs. It just traces the error.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.gitCommandf``1(System.String,Microsoft.FSharp.Core.PrintfFormat{``0,Microsoft.FSharp.Core.Unit,System.String,Microsoft.FSharp.Core.Unit})">
+<summary>
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.gitCommand(System.String,System.String)">
+<summary>
+ Runs the given git command, waits for its completion.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.directRunGitCommandAndFail(System.String,System.String)">
+<summary>
+ Runs the given git command, waits for its completion and fails when it didn&apos;t succeeded.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.directRunGitCommand(System.String,System.String)">
+<summary>
+ Runs the given git command, waits for its completion and returns whether it succeeded.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.fireAndForgetGitCommand(System.String,System.String)">
+<summary>
+ Fires the given git command ind the given repository directory and returns immediatly.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.getGitResult(System.String,System.String)">
+<summary>
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.runGitCommandf``1(Microsoft.FSharp.Core.PrintfFormat{``0,Microsoft.FSharp.Core.Unit,System.String,Microsoft.FSharp.Core.FSharpFunc{System.String,System.Tuple{System.Boolean,Microsoft.FSharp.Collections.FSharpList{System.String},System.String}}})">
+<summary>
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommandHelper.runGitCommand(System.String,System.String)">
+<summary>
+ Runs git.exe with the given command in the given repository directory.
+</summary>
+</member>
+<member name="P:Fake.Tools.Git.CommandHelper.gitPath">
+<summary>
+ Tries to locate the git.exe via the eviroment variable &quot;GIT&quot;.
+</summary>
+</member>
+<member name="P:Fake.Tools.Git.CommandHelper.gitTimeOut">
+<summary>
+ Specifies a global timeout for git.exe - default is *no timeout*
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.CommandHelper">
+<summary>
+ Contains helpers which allow to interact with [git](http://git-scm.com/) via the command line.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SHA1.showObjectHash(System.String,System.String)">
+<summary>
+ Shows the SHA1 calculated by git.
+ Assumes that the CommandHelper module can find git.exe.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SHA1.calcGitSHA1(System.String)">
+<summary>
+ Calculates the SHA1 for a given string like git.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SHA1.calcSHA1(System.String)">
+<summary>
+ Calculates the SHA1 for a given string.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.SHA1">
+<summary>
+ Contains functions which allow the SHA1 of a file with git and without it.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Repository.fullclean(System.String)">
+<summary>
+ Cleans a directory by removing all files and sub-directories.
+ ## Parameters
+
+  - `repositoryDir` - The path of the directory to clean.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Repository.init(System.String,System.Boolean,System.Boolean)">
+<summary>
+ Inits a git repository.
+ ## Parameters
+
+  - `repositoryDir` - The path of the target directory.
+  - `bare` - If the new directory is a bare directory.
+  - `shared` - Specifies that the git repository is to be shared amongst several users. This allows users belonging to the same group to push into that repository. 
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Repository.cloneSingleBranch(System.String,System.String,System.String,System.String)">
+<summary>
+ Clones a single branch of a git repository.
+ ## Parameters
+
+  - `workingDir` - The working directory.
+  - `repoUrl` - The URL to the origin.
+  - `branchname` - Specifes the target branch.
+  - `toPath` - Specifes the new target subfolder.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Repository.clone(System.String,System.String,System.String)">
+<summary>
+ Clones a git repository.
+ ## Parameters
+
+  - `workingDir` - The working directory.
+  - `repoUrl` - The URL to the origin.
+  - `toPath` - Specifes the new target subfolder.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Repository">
+<summary>
+ Contains functions which allow basic operations on git repositories.
+ All operations assume that the CommandHelper can find git.exe.
+</summary>
+</member>
+<member name="P:Fake.Tools.Git.Submodule.Submodule.Status">
+<summary>
+ Gets the current status.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Submodule.Submodule.GetRemotePath">
+<summary>
+ Gets the remote path from the config.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Submodule.Submodule.GetLocalPath">
+<summary>
+ Gets the local path from the config.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Submodule.Submodule">
+<summary>
+ This record represents a git submodule binding.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Submodule.add(System.String,System.String,System.String,System.String)">
+<summary>
+ Adds a submodule to the given super repository.
+ ## Parameters
+
+  - `superRepositoryDir` - The super repository.
+  - `remotePath` - The path to the remote repository of the submodule.
+  - `localPath` - The local path to the submodule.
+  - `branch` - The branch to  clone. (can be null)
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Submodule.init(System.String,System.String)">
+<summary>
+ Inits a submodule with the given name in a subfolder of the given super repository.
+ ## Parameters
+
+  - `superRepositoryDir` - The super repository.
+  - `name` - The name of the new repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Submodule.getSubModules(System.String)">
+<summary>
+ Gets all submodules from the given repository directory.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Submodule">
+<summary>
+ Contains helper functions which allow to deal with git submodules.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.pull(System.String,System.String,System.String)">
+<summary>
+ Pulls a given branch from the given remote.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `remote` - The name of the remote.
+  - `branch` - The name of the branch to pull.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.pushBranch(System.String,System.String,System.String)">
+<summary>
+ Pushes the given branch to the given remote.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `remote` - The remote.
+  - `branch` - The branch.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.pushTag(System.String,System.String,System.String)">
+<summary>
+ Pushes the given tag to the given remote.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `remote` - The remote.
+  - `tag` - The tag.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.push(System.String)">
+<summary>
+ Pushes all branches to the default remote.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.deleteTag(System.String,System.String)">
+<summary>
+ Deletes the given tag.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `tag` - The tag which should be deleted.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.tag(System.String,System.String)">
+<summary>
+ Tags the current branch.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `tag` - The new tag.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.deleteBranch(System.String,System.Boolean,System.String)">
+<summary>
+ Deletes the given branch.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `force` - Determines if git should be run with the *force* flag.
+  - `branch` - The branch which should be deleted.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.createBranch(System.String,System.String,System.String)">
+<summary>
+ Creates a new branch from the given commit.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `newBranchName` - The new branch.
+  - `commit` - The commit which git should take as the new HEAD. - can be HEAD, HEAD~1, ... , a branch name or a prefix of a SHA1.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.checkout(System.String,System.Boolean,System.String)">
+<summary>
+ Performs a checkout of the given branch to the working copy.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `create` - Set this to true if the branch is new.
+  - `branch` - The new branch.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.checkoutNewBranch(System.String,System.String,System.String)">
+<summary>
+ Creates a new branch based on the given baseBranch and checks it out to the working copy.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `baseBranch` - The base branch.
+  - `branch` - The new branch.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.checkoutTracked(System.String,System.String,System.String)">
+<summary>
+ Performs a checkout of the given branch with an additional tracking branch.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `trackBranch` - The tracking branch.
+  - `branch` - The branch for the checkout.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.checkoutBranch(System.String,System.String)">
+<summary>
+ Performs a checkout of the given branch to the working copy.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `branch` - The branch for the checkout.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.revisionsBetween(System.String,System.String,System.String)">
+<summary>
+ Returns the number of revisions between the two given commits.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `commit1` - The first commit for which git should find the merge base.
+  - `commit2` - The second commit for which git should find the merge base.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.findMergeBase(System.String,System.String,System.String)">
+<summary>
+ Returns the SHA1 of the merge base of the two given commits from the given repository.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `commit1` - The first commit for which git should find the merge base.
+  - `commit2` - The second commit for which git should find the merge base.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.getSHA1(System.String,System.String)">
+<summary>
+ Returns the SHA1 of the given commit from the given repository.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `commit` - The commit for which git should return the SHA1 - can be HEAD, HEAD~1, ... , a branch name or a prefix of a SHA1.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.getAllBranches(System.String)">
+<summary>
+ Gets all local and remote branches from the given repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.getRemoteBranches(System.String)">
+<summary>
+ Gets all remote branches from the given repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Branches.getLocalBranches(System.String)">
+<summary>
+ Gets all local branches from the given repository.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Branches">
+<summary>
+ Contains helper functions which allow to deal with git branches.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Reset.ResetHard(System.String)">
+<summary>
+ Performs a git reset &quot;hard&quot; to the current HEAD.
+ Resets the index and working tree. Any changes to tracked files in the working tree since &lt;commit&gt; are discarded.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Reset.ResetMixed(System.String)">
+<summary>
+ Performs a git reset &quot;mixed&quot; to the current HEAD.
+ Resets the index but not the working tree and reports what has not been updated. 
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Reset.ResetSoft(System.String)">
+<summary>
+ Performs a git reset &quot;soft&quot; to the current HEAD.
+ Does not touch the index file nor the working tree at all.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Reset.hard(System.String,System.String,System.String)">
+<summary>
+ Performs a git reset &quot;hard&quot;.
+ Resets the index and working tree. Any changes to tracked files in the working tree since &lt;commit&gt; are discarded.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `commit` - The commit to which git should perform the reset.
+  - `file` - The file to reset - null means all files.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Reset.mixed(System.String,System.String,System.String)">
+<summary>
+ Performs a git reset &quot;mixed&quot;.
+ Resets the index but not the working tree and reports what has not been updated.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `commit` - The commit to which git should perform the reset.
+  - `file` - The file to reset - null means all files.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Reset.soft(System.String,System.String,System.String)">
+<summary>
+ Performs a git reset &quot;soft&quot;.
+ Does not touch the index file nor the working tree at all.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `commit` - The commit to which git should perform the reset.
+  - `file` - The file to reset - null means all files.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Reset.resetOrCheckout(System.String,System.String)">
+<summary>
+ the intent of the &apos;reset&apos; helper is to either set a repo to a certain point, or set a file to a certain point.  Git reset doesn&apos;t take file paths in the hard/mixed/soft modes, and so you have to use checkout instead for that.
+ This function encapsulates caring about that so you don&apos;t have to.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Reset">
+<summary>
+ Contains helper functions which allow to deal with git reset.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Merge.MergeType">
+<summary>
+ Git merge option.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Merge.merge(System.String,System.String,System.String)">
+<summary>
+ Performs a merge of the given branch with the current branch
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `flags` - Additional flags.
+  - `branch` - The branch we want to merge in.
+ ## Sample
+
+     merge @&quot;C:\code\Fake&quot; NoFastForwardFlag &quot;master&quot;
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Merge.compareBranches(System.String,System.String,System.String)">
+<summary>
+ Tests whether branches and their &quot;origin&quot; counterparts have diverged and need merging first.
+ ## Parameters
+
+  - `repositoryDir` - The git repository.
+  - `local` - The local branch name.
+  - `remote` - The remote branch name.
+</summary>
+</member>
+<member name="P:Fake.Tools.Git.Merge.NoFastForwardFlag">
+<summary>
+ Forbids git to use fast-forward merges
+</summary>
+</member>
+<member name="P:Fake.Tools.Git.Merge.FastForwardFlag">
+<summary>
+ Allows git to use fast-forward merges
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Merge.getMergeMessage(System.String)">
+<summary>
+ Gets the current merge message.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Merge">
+<summary>
+ Contains helper functions which allow to deal with git merge.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Stash.pop(System.String)">
+<summary>
+ Remove a single stashed state from the stash list and
+ apply it on top of the current working tree state,
+ i.e., do the inverse operation of git stash save.
+ The working directory must match the index.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Stash.push(System.String,System.String)">
+<summary>
+ Stash the changes in a dirty working directory away.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Stash">
+<summary>
+ Contains helper functions which allow to deal with git stash.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SanityChecks.checkIsRemoteBranch(System.String,System.String)">
+<summary>
+ Checks if the given branch is a remote branch.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SanityChecks.checkIsLocalBranch(System.String,System.String)">
+<summary>
+ Checks if the given branch is a local branch.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SanityChecks.checkIfBranchIsAbsent(System.String,System.String)">
+<summary>
+ Checks if the given branch is absent.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SanityChecks.checkIfBranchExists(System.String,System.String)">
+<summary>
+ Checks if the given branch exists.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.SanityChecks.checkRevisionExists(System.String,System.String)">
+<summary>
+ Checks if the given branch exists.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.SanityChecks">
+<summary>
+ Contains helper function which can be used for sanity checks.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.getCurrentHash">
+<summary>
+ Gets the current hash of the current repository
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.getLastTag">
+<summary>
+ Gets the last git tag of the current repository by calling git describe
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.shortlog(System.String)">
+<summary>
+ Gets the git log in one line
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.describe(System.String)">
+<summary>
+ Gets the last git tag by calling git describe
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.isAheadOf(System.String,System.String,System.String)">
+<summary>
+ Returns true if rev1 is ahead of rev2
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.showName(System.String,System.String)">
+<summary>
+ Returns a friendly name from a SHA1
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.isCleanWorkingCopy(System.String)">
+<summary>
+ Checks if the working copy is clean
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.showStatus(System.String)">
+<summary>
+ Shows the git status
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.getCurrentSHA1(System.String)">
+<summary>
+ Returns the SHA1 of the current HEAD
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.getBranchName(System.String)">
+<summary>
+ Gets the git branch name
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.extractGitVersion(System.String)">
+<summary>
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Information.getVersion(System.String)">
+<summary>
+ Gets the git version
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Information">
+<summary>
+ Contains helper functions which can be used to retrieve status information from git.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.FileStatus.FileStatus">
+<summary>
+ A type which represents a file status in git.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.cleanWorkingCopy(System.String)">
+<summary>
+ Cleans the working copy by doing a git reset --hard and a clean -f.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.isInTheMiddleOfPatch(System.String)">
+<summary>
+ Returns true if the given repository is in the middle of a patch process.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.isInTheMiddleOfRebase(System.String)">
+<summary>
+ Returns true if the given repository is in the middle of a rebase process.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.getRebaseDir(System.String)">
+<summary>
+ Returns the current rebase directory for the given repository.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.isInTheMiddleOfConflictedMerge(System.String)">
+<summary>
+ Returns true if the working copy is in a conflicted merge otherwise false
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.getConflictedFiles(System.String)">
+<summary>
+ Gets all conflicted files
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.getChangedFilesInWorkingCopy(System.String,System.String)">
+<summary>
+ Gets the changed files since the given revision incl. changes in the working copy
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.getAllFiles(System.String)">
+<summary>
+ Gets all changed files in the current revision
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.FileStatus.getChangedFiles(System.String,System.String,System.String)">
+<summary>
+ Gets the changed files between the given revisions
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.FileStatus">
+<summary>
+ Contains helper functions which can be used to retrieve file status information from git.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Rebase.rebaseOrFallbackOnMerge(System.String,System.String)">
+<summary>
+ Tries to rebase on top of the given branch.
+ If the rebasing process fails a normal merge will be started.
+ Returns if the process used merge instead of rebase.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Rebase.rollBackAndUseMerge(System.String,System.String)">
+<summary>
+ rebase failed ==&gt; fallback on merge
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Rebase.skip(System.String)">
+<summary>
+ Restart the rebasing process by skipping the current patch.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Rebase.continueRebase(System.String)">
+<summary>
+ Restart the rebasing process after having resolved a merge conflict.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Rebase.abort(System.String)">
+<summary>
+ Restore the original branch and abort the rebase operation.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Rebase.start(System.String,System.String)">
+<summary>
+ Performs a rebase on top of the given branch with the current branch
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Rebase">
+<summary>
+ Contains helper functions which allow to deal with git rebase.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommitMessage.setMessage(System.String,System.String)">
+<summary>
+ Sets the commit message
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommitMessage.getCommitMessage(System.String)">
+<summary>
+ Gets the commit message
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.CommitMessage.getCommitMessageFileInfos(System.String)">
+<summary>
+ Returns the commit message file.
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.CommitMessage">
+<summary>
+ Contains helper functions which allow to get and set the git commit message.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Staging.stageAll(System.String)">
+<summary>
+ Adds all files to the staging area
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Staging.stageFile(System.String,System.String)">
+<summary>
+ Adds a file to the staging area
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Staging">
+<summary>
+ Contains helper functions which allow to deal with git&apos;s staging area.
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Commit.execExtended(System.String,System.String,System.String)">
+<summary>
+ Commits all files in the given repository with the given short message along with an extended message
+</summary>
+</member>
+<member name="M:Fake.Tools.Git.Commit.exec(System.String,System.String)">
+<summary>
+ Commits all files in the given repository with the given message
+</summary>
+</member>
+<member name="T:Fake.Tools.Git.Commit">
+<summary>
+ Contains helper functions which allow to commit to git repositories.
+</summary>
+</member>
+</members>
+</doc>

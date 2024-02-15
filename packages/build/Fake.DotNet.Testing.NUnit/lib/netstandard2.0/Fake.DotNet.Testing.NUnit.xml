@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fake.DotNet.Testing.NUnit</name></assembly>
+<members>
+<member name="M:Fake.DotNet.Testing.NUnit.Xml.AllSucceeded``1(System.Collections.Generic.IEnumerable{``0})">
+<summary>
+ Returns whether all tests in the given test result have succeeded
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit.Xml.GetTestAssemblies(System.Xml.Linq.XDocument)">
+<summary>
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit.Xml.NUnitMerge.mergeXDocs``1(Microsoft.FSharp.Collections.FSharpList{``0})">
+<summary>
+ Merges non-empty list of test result XDocuments into a single XElement
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Xml.NUnitMerge">
+<summary>
+ Used by the NUnitParallel helper, can also be used to merge test results
+ from multiple calls to the normal NUnit helper.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Xml">
+<summary>
+ Contains types and functions for working with [NUnit](http://www.nunit.org/) unit tests result xml.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.Fixture">
+<summary>
+ Default: &quot;&quot;
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.ErrorLevel">
+<summary>
+ Default: [TestRunnerErrorLevel](fake-unittestcommon-testrunnererrorlevel.html).Error
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.Domain">
+<summary>
+ See [NUnitDomainModel](fake-nunitcommon-nunitdomainmodel.html).
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.DisableShadowCopy">
+<summary>
+ Disables shadow copying of the assembly in order to provide improved performance.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.TimeOut">
+<summary>
+ The default timeout to be used for test cases. If any test exceeds the timeout value, it is cancelled and reported as an error.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.XsltTransformFile">
+<summary>
+ The path to a custom XSLT transform file to be used to process the XML report.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.WorkingDir">
+<summary>
+ The working directory.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.ShowLabels">
+<summary>
+ Causes an identifying label to be displayed at the start of each test case.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.ProcessModel">
+<summary>
+ Controls how NUnit loads tests in processes. See: [NUnitProcessModel](fake-nunitcommon-nunitprocessmodel.html).
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.Framework">
+<summary>
+ Allows you to specify the version of the runtime to be used in executing tests.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.ErrorOutputFile">
+<summary>
+ Redirects error output created by the tests from standard error output (console) to the file specified as value.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.Out">
+<summary>
+ Redirects output created by the tests from standard output (console) to the file specified as value.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.OutputFile">
+<summary>
+ The output path of the nUnit XML report.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.SkipNonTestAssemblies">
+<summary>
+ Gives ability to not error if an assembly with no tests is passed into nunit
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.StopOnError">
+<summary>
+ Causes execution of the test run to terminate immediately on the first test failure or error.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.DontTestInNewThread">
+<summary>
+ Suppresses use of a separate thread for running the tests and uses the main thread instead.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.ToolName">
+<summary>
+ NUnit console runner name. ( `nunit-console.exe`)
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.ToolPath">
+<summary>
+ The path to the NUnit console runner: `nunit-console.exe`
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.ExcludeCategory">
+<summary>
+ The [Categories](http://www.nunit.org/index.php?p=category&amp;r=2.6.4) to be excluded in a test run. Multiple categories may be specified on either option, by using commas to separate them.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitParams.IncludeCategory">
+<summary>
+ The [Categories](http://www.nunit.org/index.php?p=category&amp;r=2.6.4) to be included in a test run. Multiple categories may be specified on either option, by using commas to separate them.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitParams">
+<summary>
+ The [NUnit](http://www.nunit.org/) Console Parameters type.
+ FAKE will use [NUnitDefaults](fake-nunitcommon.html) for values not provided.
+
+ For reference, see: [NUnit-Console Command Line Options](http://www.nunit.org/index.php?p=consoleCommandLine&amp;r=2.6.4)
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitDomainModel.MultipleDomainModel">
+<summary>
+ A separate test domain is created for each assembly
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitDomainModel.SingleDomainModel">
+<summary>
+ A test domain is created - this is how NUnit worked prior to version 2.4
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitDomainModel.NoDomainModel">
+<summary>
+ No domain is created - the tests are run in the primary domain. This normally requires copying the NUnit assemblies into the same directory as your tests.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitDomainModel.DefaultDomainModel">
+<summary>
+ The default is to use multiple domains if multiple assemblies are listed on the command line. Otherwise a single domain is used.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitDomainModel">
+<summary>
+ The /domain option controls of the creation of AppDomains for running tests. See [NUnit-Console Command Line Options](http://www.nunit.org/index.php?p=consoleCommandLine&amp;r=2.6.4)
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitProcessModel">
+<summary>
+ Process model for nunit to use, see [Project Editor](http://www.nunit.org/index.php?p=projectEditor&amp;r=2.6.4)
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common.NUnitErrorLevel">
+<summary>
+ Option which allows to specify if a NUnit error should break the build.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit.Common.|OK|TestsFailed|FatalError|(System.Int32)">
+<summary>
+ NUnit console returns negative error codes for errors and sum of failed, ignored and exceptional tests otherwise.
+ Zero means that all tests passed.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit.Common.getWorkingDir(Fake.DotNet.Testing.NUnit.Common.NUnitParams)">
+<summary>
+ Tries to detect the working directory as specified in the parameters or via TeamCity settings
+ [omit]
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit.Common.buildArgs(Fake.DotNet.Testing.NUnit.Common.NUnitParams,System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Builds the command line arguments from the given parameter record and the given assemblies.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit.Common.NUnitDefaults">
+<summary>
+ The [NUnitParams](fake-nunitcommon-nunitparams.html) default parameters.
+
+ ## Defaults
+ - `IncludeCategory` - `&quot;&quot;`
+ - `ExcludeCategory` - `&quot;&quot;`
+ - `ToolPath` - The `nunit-console.exe` path if it exists in a subdirectory of the current directory.
+ - `ToolName` - `&quot;nunit-console.exe&quot;`
+ - `DontTestInNewThread`- `false`
+ - `StopOnError` - `false`
+ - `SkipNonTestAssemblies` - `false`
+ - `OutputFile` - `&quot;TestResult.xml&quot;`
+ - `Out` - `&quot;&quot;`
+ - `ErrorOutputFile` - `&quot;&quot;`
+ - `WorkingDir` - `&quot;&quot;`
+ - `Framework` - `&quot;&quot;`
+ - `ProcessModel` - `DefaultProcessModel`
+ - `ShowLabels` - `true`
+ - `XsltTransformFile` - `&quot;&quot;`
+ - `TimeOut` - 5 minutes
+ - `DisableShadowCopy` - `false`
+ - `Domain` - `DefaultDomainModel`
+ - `ErrorLevel` - `Error`
+ - `Fixture` - `&quot;&quot;`
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Common">
+<summary>
+ Contains types and utility functions relaited to running [NUnit](http://www.nunit.org/) unit tests.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit.Sequential.run(Microsoft.FSharp.Core.FSharpFunc{Fake.DotNet.Testing.NUnit.Common.NUnitParams,Fake.DotNet.Testing.NUnit.Common.NUnitParams},System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Runs NUnit on a group of assemblies.
+ ## Parameters
+ 
+  - `setParams` - Function used to manipulate the default [NUnitParams](fake-nunitcommon-nunitparams.html) value.
+  - `assemblies` - Sequence of one or more assemblies containing NUnit unit tests.
+ 
+ ## Sample usage
+
+     Target &quot;Test&quot; (fun _ -&gt;
+         !! (testDir + @&quot;\Test.*.dll&quot;) 
+           |&gt; NUnit (fun p -&gt; { p with ErrorLevel = DontFailBuild })
+     )
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Sequential">
+<summary>
+ Contains tasks to run [NUnit](http://www.nunit.org/) unit tests.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit.Parallel.run(Microsoft.FSharp.Core.FSharpFunc{Fake.DotNet.Testing.NUnit.Common.NUnitParams,Fake.DotNet.Testing.NUnit.Common.NUnitParams},System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Runs NUnit in parallel on a group of assemblies.
+ ## Parameters
+
+  - `setParams` - Function used to manipulate the default [NUnitParams](fake-nunitcommon-nunitparams.html) value.
+  - `assemblies` - Sequence of one or more assemblies containing NUnit unit tests.
+
+ ## Sample usage
+
+     Target &quot;Test&quot; (fun _ -&gt;
+         !! (testDir + @&quot;\Test.*.dll&quot;)
+           |&gt; NUnitParallel (fun p -&gt; { p with ErrorLevel = DontFailBuild })
+     )
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit.Parallel">
+<summary>
+ Contains tasks to run [NUnit](http://www.nunit.org/) unit tests in parallel.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Environment">
+<summary>
+ list or environment variables that will be set in the nunit-console.exe process
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Params">
+<summary>
+ A test parameter specified in the form name=value. Multiple parameters may be specified, separated by semicolons
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.SkipNonTestAssemblies">
+<summary>
+ Skips assemblies that do not contain tests or assemblies that contain the NUnit.Framework.NonTestAssemblyAttribute without raising an error
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.TraceLevel">
+<summary>
+ Controls the trace logs NUnit3 will output, defaults to Off
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.ErrorLevel">
+<summary>
+ Default: [TestRunnerErrorLevel](fake-unittestcommon-testrunnererrorlevel.html).Error
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Labels">
+<summary>
+ Specify whether to write test case names to the output.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.TeamCity">
+<summary>
+ Turns on use of TeamCity service messages.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.ShadowCopy">
+<summary>
+ Tells .NET to copy loaded assemblies to the shadowcopy directory.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.ResultSpecs">
+<summary>
+ Output specs for saving the test results. Default value is TestResult.xml
+ Passing empty list does not save any result (--noresult option in NUnit)
+ For more information, see: [NUnit3 command line options](https://github.com/nunit/docs/wiki/Console-Command-Line)
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.ErrorDir">
+<summary>
+ File path to contain error output from the tests.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.OutputDir">
+<summary>
+ File path to contain text output from the tests.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.WorkingDir">
+<summary>
+ Path of the directory to use for output files.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.StopOnError">
+<summary>
+ Causes execution of the test run to terminate immediately on the first test failure or error.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Workers">
+<summary>
+ Specify the NUMBER of worker threads to be used in running tests.
+ This setting is used to control running your tests in parallel and is used in conjunction with the Parallelizable Attribute.
+ If not specified, workers defaults to the number of processors on the machine, or 2, whichever is greater.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Seed">
+<summary>
+ Set the random seed used to generate test cases
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.TimeOut">
+<summary>
+ The default timeout to be used for test cases. If any test exceeds the timeout value, it is cancelled and reported as an error.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.DisposeRunners">
+<summary>
+ Dispose each test runner after it has finished running its tests
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Force32bit">
+<summary>
+ Run tests in a 32-bit process on 64-bit systems.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Framework">
+<summary>
+ Allows you to specify the version of the runtime to be used in executing tests.
+ Default value is runtime under which the assembly was built. See: [NUnit3Runtime](fake-testing-nunit3-nunit3runtime.html).
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Domain">
+<summary>
+ Controls how NUnit loads tests in processes. See: [NUnit3ProcessModel](fake-testing-nunit3-nunit3domainmodel.html).
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Agents">
+<summary>
+ Number of agents that may be allowed to run simultaneously assuming you are not running inprocess.
+ If not specified, all agent processes run tests at the same time, whatever the number of assemblies.
+ This setting is used to control running your assemblies in parallel.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.ProcessModel">
+<summary>
+ Controls how NUnit loads tests in processes. See [NUnit3ProcessModel](fake-testing-nunit3-nunit3processmodel.html)
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Config">
+<summary>
+ Name of a project configuration to load (e.g.: Debug)
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Where">
+<summary>
+ An expression indicating which tests to run. It may specify test names, classes, methods,
+ catgories or properties comparing them to actual values with the operators ==, !=, =~ and !~.
+ See [NUnit documentation](https://github.com/nunit/docs/wiki/Test-Selection-Language) for a full description of the syntax.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.Testlist">
+<summary>
+ The name (or path) of a file containing a list of tests to run or explore, one per line.
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Params.ToolPath">
+<summary>
+ The path to the NUnit3 console runner: `nunit3-console.exe`
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit3.NUnit3Params.WithEnvironment(Microsoft.FSharp.Collections.FSharpMap{System.String,System.String})">
+<summary>
+ Sets the current environment variables.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3Params">
+<summary>
+ The NUnit 3 Console Parameters type. FAKE will use [NUnit3Defaults](fake-testing-nunit3.html) for values not provided.
+
+ For reference, see: [NUnit3 command line options](https://github.com/nunit/docs/wiki/Console-Command-Line)
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.LabelsLevel">
+<summary>
+ The --labels option in NUnit3 console runner. Specify whether to write test case names to the output.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3TraceLevel">
+<summary>
+ The --trace option in NUnit3 console runner. Specifies the internal nunit runner log level.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3ErrorLevel">
+<summary>
+ Option which allows to specify if a NUnit error should break the build.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3Runtime.Other">
+<summary>
+ NUnit should use runtime specified by this value
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3Runtime.Mono">
+<summary>
+ NUnit should use Mono framework but can select its version
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3Runtime.Net">
+<summary>
+ NUnit should use .NET framework but can select its version
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3Runtime.Default">
+<summary>
+ Uses the runtime under which the assembly was built.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3Runtime">
+<summary>
+ The --framework option in running NUnit 3. There are three kinds - VXY, which means either .NET framework or Mono, NetXY (use .NET framework with given version)
+ and MonoXY (Mono framework with given version). You can use Net or Mono to let NUnit select the version.
+ You can pass any value using Other.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3DomainModel.MultipleDomainModel">
+<summary>
+ A separate test domain is created for each assembly
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3DomainModel.SingleDomainModel">
+<summary>
+ A test domain is created - this is how NUnit worked prior to version 2.4
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3DomainModel.NoDomainModel">
+<summary>
+ No domain is created - the tests are run in the primary domain. This normally requires copying the NUnit assemblies into the same directory as your tests.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3DomainModel.DefaultDomainModel">
+<summary>
+ The default is to use multiple domains if multiple assemblies are listed on the command line. Otherwise a single domain is used.
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3DomainModel">
+<summary>
+ The --domain option controls of the creation of AppDomains for running tests. See [NUnit-Console Command Line Options](http://www.nunit.org/index.php?p=consoleCommandLine&amp;r=2.6.4)
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3.NUnit3ProcessModel">
+<summary>
+ Process model for NUnit 3 to use.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit3.buildArgs(Fake.DotNet.Testing.NUnit3.NUnit3Params,System.Collections.Generic.IEnumerable{System.String})">
+<summary>
+ Builds the command line arguments from the given parameter record and the given assemblies.
+</summary>
+</member>
+<member name="M:Fake.DotNet.Testing.NUnit3.getWorkingDir(Fake.DotNet.Testing.NUnit3.NUnit3Params)">
+<summary>
+ Tries to detect the working directory as specified in the parameters or via TeamCity settings
+ [omit]
+</summary>
+</member>
+<member name="P:Fake.DotNet.Testing.NUnit3.NUnit3Defaults">
+<summary>
+ The [NUnit3Params](fake-testing-nunit3-nunit3params.html) default parameters.
+
+ - `ToolPath` - The `nunit-console.exe` path if it exists in `tools/Nunit/`.
+ - `Testlist` - `&quot;&quot;`
+ - `Where` - `&quot;&quot;`
+ - `Config` - `&quot;&quot;`
+ - `ProcessModel` - `DefaultProcessModel`
+ - `Agents` - `None`
+ - `Domain` - `DefaultDomainModel`
+ - `Framework` - `&quot;&quot;`
+ - `Force32bit` - `false`
+ - `DisposeRunners` - `false`
+ - `Timeout` - `2147483647 milliseconds`
+ - `Seed` - `-1` (negative seed is ignored by NUnit and is not sent to it)
+ - `Workers` - `None`
+ - `StopOnError` - `false`
+ - `WorkingDir` - `&quot;&quot;`
+ - `OutputDir` - `&quot;&quot;`
+ - `ErrorDir` - `&quot;&quot;`
+ - `ResultSpecs` - `&quot;TestResult.xml&quot;`
+ - `ShadowCopy` - `false`
+ - `TeamCity` - `false`
+ - `ErrorLevel` - `Error`
+ - `TraceLevel` - `Default` (By default NUnit3 sets this to off internally)
+ - `SkipNonTestAssemblies` - `false`
+ - `Params` - `&quot;&quot;`
+ - `EnvironmentVariables` - `[]`
+ ## Defaults
+</summary>
+</member>
+<member name="T:Fake.DotNet.Testing.NUnit3">
+<summary>
+ Contains tasks to run [NUnit](http://www.nunit.org/) unit tests.
+
+ ### Sample
+
+        Target.create &quot;Test&quot; (fun _ -&gt;
+            !! (testDir + &quot;/NUnit.Test.*.dll&quot;)
+              |&gt; NUnit3.run (fun p -&gt;
+                  {p with
+                        ShadowCopy = false })
+        )
+
+</summary>
+</member>
+</members>
+</doc>

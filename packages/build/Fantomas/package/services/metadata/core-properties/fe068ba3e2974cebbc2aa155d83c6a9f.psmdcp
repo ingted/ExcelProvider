@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<coreProperties xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.openxmlformats.org/package/2006/metadata/core-properties">
+  <dc:creator>Florian Verdonck, Jindřich Ivánek, David Schaefer</dc:creator>
+  <dc:description>This library aims at formatting F# source files based on a given configuration.
+Fantomas will ensure correct indentation and consistent spacing between elements in the source files.
+Some common use cases include:
+(1) Reformatting a code base to conform a universal page width
+(2) Converting legacy code from verbose syntax to light syntax
+(3) Formatting auto-generated F# signatures.</dc:description>
+  <dc:identifier>fantomas</dc:identifier>
+  <version>6.2.3</version>
+  <keywords>F# fsharp formatting beautifier indentation indenter</keywords>
+  <lastModifiedBy>NuGet.Build.Tasks.Pack, Version=6.8.0.41, Culture=neutral, PublicKeyToken=31bf3856ad364e35;.NET Standard 2.0</lastModifiedBy>
+</coreProperties>

@@ -1,0 +1,5 @@
+ExcelDataReader,3.6,Direct,Main,false,true,false,true,
+ExcelDataReader.DataSet,3.6,Direct,Main,false,true,false,true,
+FSharp.Core,6.0.3,Direct,Main,false,true,false,true,
+System.Runtime.CompilerServices.Unsafe,5.0,Transitive,Main,false,true,false,true,
+System.Text.Encoding.CodePages,5.0,Direct,Main,false,true,false,true,

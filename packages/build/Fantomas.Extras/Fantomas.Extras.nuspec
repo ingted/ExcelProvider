@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Fantomas.Extras</id>
+    <version>4.5.12</version>
+    <title>Fantomas.Extras</title>
+    <authors>Florian Verdonck Jindřich Ivánek</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.md</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>fantomas_logo.png</icon>
+    <projectUrl>https://github.com/fsprojects/fantomas</projectUrl>
+    <description>This library aims at formatting F# source files based on a given configuration.
+Fantomas will ensure correct indentation and consistent spacing between elements in the source files.
+Some common use cases include
+(1) Reformatting a code base to conform a universal page width
+(2) Converting legacy code from verbose syntax to light syntax
+(3) Formatting auto-generated F# signatures.</description>
+    <releaseNotes>Fix Strings containing spaces at end of line change meaning. [#1941](https://github.com/fsprojects/fantomas/issues/1941)
+Fix Explicit class/end/with loses members. [#1940](https://github.com/fsprojects/fantomas/issues/1940)
+Fix Idempotency problem when static member with get. [#1913](https://github.com/fsprojects/fantomas/issues/1913)</releaseNotes>
+    <copyright>Copyright © 2022</copyright>
+    <tags>F# fsharp formatting beautifier indentation indenter</tags>
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Fantomas" version="4.5.12" exclude="Build,Analyzers" />
+        <dependency id="FSharp.Core" version="5.0.1" exclude="Build,Analyzers" />
+        <dependency id="MAB.DotIgnore" version="3.0.2" exclude="Build,Analyzers" />
+        <dependency id="editorconfig" version="0.12.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

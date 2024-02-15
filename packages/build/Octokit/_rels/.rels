@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/Octokit.nuspec" Id="RF4D3CB5FB9B8B768" />
+  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/bc79043a14df4a078fd28c73cc0b4c6f.psmdcp" Id="RA4128794B3C3952F" />
+</Relationships>

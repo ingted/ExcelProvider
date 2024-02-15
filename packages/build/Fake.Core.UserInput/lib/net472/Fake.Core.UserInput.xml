@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fake.Core.UserInput</name></assembly>
+<members>
+<member name="T:Fake.Core.UserInput">
+<summary>
+ Helpers for capturing user input
+
+ ## Sample
+
+     UserInput.getUserInput prompt
+</summary>
+</member>
+</members>
+</doc>

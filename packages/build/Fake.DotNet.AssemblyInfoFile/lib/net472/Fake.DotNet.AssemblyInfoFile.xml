@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>Fake.DotNet.AssemblyInfoFile</name></assembly>
+<members>
+<member name="T:Fake.DotNet.AssemblyInfoFileConfig">
+<summary>
+ Represents options for configuring the emission of AssemblyInfo
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.updateAttributes(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute})">
+<summary>
+ Update a set of attributes in an AssemblyInfo file. Fails if any attribute is not found.
+ ## Parameters
+  - `assemblyInfoFile` - The file to update. Language C#, F#, VB or C++ is determined from the extension.
+  - `attributes` - The Attributes that should be updated matched on Name (Namespace is not used).
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.getAttributeValue(System.String,System.String)">
+<summary>
+ Read the value of a single attribute from an AssemblyInfo file. Note that string values are returned with surrounding &quot;&quot;.
+ ## Parameters
+  - `attrName` - Name of the attribute without &quot;Attribute&quot; at the end.
+  - `assemblyInfoFile` - The file to read from. Language C#, F#, VB or C++ is determined from the extension.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.getAttribute(System.String,System.String)">
+<summary>
+ Read a single attribute from an AssemblyInfo file.
+ ## Parameters
+  - `attrName` - Name of the attribute without &quot;Attribute&quot; at the end.
+  - `assemblyInfoFile` - The file to read from. Language C#, F#, VB or C++ is determined from the extension.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.getAttributes(System.String)">
+<summary>
+ Read attributes from an AssemblyInfo file and return as a sequence of Attribute.
+ ## Parameters
+  - `assemblyInfoFile` - The file to read attributes from. Language C#, F#, VB or C++ is determined from the extension.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.create(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute},Microsoft.FSharp.Core.FSharpOption{Fake.DotNet.AssemblyInfoFileConfig})">
+<summary>
+ Creates an AssemblyInfo file based in the correct langugage based on the file name with the given attributes and configuration.
+ The generated AssemblyInfo file contains an AssemblyVersionInformation class which can be used to retrieve the current version no. from inside of an assembly.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createCppCli(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute})">
+<summary>
+  Creates a C++/CLI AssemblyInfo file with the given attributes.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createVisualBasic(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute})">
+<summary>
+ Creates a VB AssemblyInfo file with the given attributes.
+ The generated AssemblyInfo file contains an AssemblyVersionInformation class which can be used to retrieve the current version no. from inside of an assembly.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createFSharp(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute})">
+<summary>
+ Creates a F# AssemblyInfo file with the given attributes.
+ The generated AssemblyInfo file contains an AssemblyVersionInformation class which can be used to retrieve the current version no. from inside of an assembly.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createCSharp(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute})">
+<summary>
+ Creates a C# AssemblyInfo file with the given attributes.
+ The generated AssemblyInfo file contains an AssemblyVersionInformation class which can be used to retrieve the current version no. from inside of an assembly.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createCppCliWithConfig(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute},Fake.DotNet.AssemblyInfoFileConfig)">
+<summary>
+ Creates a C++/CLI AssemblyInfo file with the given attributes and configuration.
+ Does not generate an AssemblyVersionInformation class.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createVisualBasicWithConfig(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute},Fake.DotNet.AssemblyInfoFileConfig)">
+<summary>
+ Creates a VB AssemblyInfo file with the given attributes and configuration.
+ The generated AssemblyInfo file contains an AssemblyVersionInformation class which can be used to retrieve the current version no. from inside of an assembly.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createFSharpWithConfig(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute},Fake.DotNet.AssemblyInfoFileConfig)">
+<summary>
+ Creates a F# AssemblyInfo file with the given attributes and configuration.
+ The generated AssemblyInfo file contains an AssemblyVersionInformation class which can be used to retrieve the current version no. from inside of an assembly.
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfoFile.createCSharpWithConfig(System.String,System.Collections.Generic.IEnumerable{Fake.DotNet.AssemblyInfo.Attribute},Fake.DotNet.AssemblyInfoFileConfig)">
+<summary>
+ Creates a C# AssemblyInfo file with the given attributes and configuration.
+ The generated AssemblyInfo file contains an AssemblyVersionInformation class which can be used to retrieve the current version no. from inside of an assembly.
+</summary>
+</member>
+<member name="T:Fake.DotNet.AssemblyInfo.Attribute">
+<summary>
+ Represents AssemblyInfo attributes
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Metadata(System.String,System.String)">
+<summary>
+ Create an attribute which specifies metadata about the assembly
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.DelaySign(System.Boolean)">
+<summary>
+ Creates an attribute which specifies if the assembly uses delayed signing
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.CLSCompliant(System.Boolean)">
+<summary>
+ Creates an attribute which specifies if the assembly is CLS compliant
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.ComVisible(System.Boolean)">
+<summary>
+ Creates an attribute which specifies if the assembly is visible via COM
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Guid(System.String)">
+<summary>
+ Creates an attribute which holds the Guid
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.InformationalVersion(System.String)">
+<summary>
+ Creates an attribute which holds an assembly information version
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.FileVersion(System.String)">
+<summary>
+ Creates an attribute which holds the assembly file version
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.InternalsVisibleTo(System.String)">
+<summary>
+ Creates an attribute which holds the &quot;InternalVisibleTo&quot; data
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.KeyName(System.String)">
+<summary>
+ Creates an attribute which holds the assembly key name
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.KeyFile(System.String)">
+<summary>
+ Creates an attribute which holds the assembly key file
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Version(System.String)">
+<summary>
+ Creates an attribute which holds the assembly version
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Trademark(System.String)">
+<summary>
+ Creates an attribute which holds the trademark
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Configuration(System.String)">
+<summary>
+ Creates an attribute which holds the assembly configuration
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Culture(System.String)">
+<summary>
+ Creates an attribute which holds the assembly culture information
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Description(System.String)">
+<summary>
+ Creates an attribute which holds the product description
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Title(System.String)">
+<summary>
+ Creates an attribute which holds the product title
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Copyright(System.String)">
+<summary>
+ Creates an attribute which holds the copyright information
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Product(System.String)">
+<summary>
+ Creates an attribute which holds the product name
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.Company(System.String)">
+<summary>
+ Creates an attribute which holds the company information
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.BoolAttribute(System.String,System.Boolean,System.String)">
+<summary>
+ Creates a simple attribute with boolean values. Used as base for other attributes
+</summary>
+</member>
+<member name="M:Fake.DotNet.AssemblyInfo.StringAttributeWithStatic(System.String,System.String,System.String,System.String,System.String)">
+<summary>
+ Creates a simple attribute with string values. Used as base for other attributes
+</summary>
+</member>
+</members>
+</doc>
