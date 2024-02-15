@@ -1,4 +1,3 @@
-G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\FSharp.Core.xml
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\ExcelProvider.DesignTime.deps.json
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\ExcelProvider.DesignTime.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\ExcelProvider.DesignTime.pdb
@@ -25,3 +24,6 @@ G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.fsproj.CopyComplete
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\obj\Release\netstandard2.0\ExcelProvider.DesignTime.pdb
+G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Buffers.dll
+G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Memory.dll
+G:\coldfar_py\ExcelProvider\src\ExcelProvider.DesignTime\bin\Release\netstandard2.0\System.Numerics.Vectors.dll

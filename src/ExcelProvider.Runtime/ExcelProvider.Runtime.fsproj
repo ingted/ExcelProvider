@@ -12,6 +12,8 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <FSharpToolsDirectory>typeproviders</FSharpToolsDirectory>
     <PackagePath>typeproviders</PackagePath>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>8.8.8.8</Version>
   </PropertyGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
   <ItemGroup>
@@ -29,25 +31,21 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="paket.references" />
+    <!--<None Include="paket.references" />-->
   </ItemGroup>
   <ItemGroup>
     <!-- Be explicit about the version of FSharp.Core since we mention it in the manual nuget package spec -->
-    <PackageReference Include="FSharp.Core" Version="6.0.3" />
+    <PackageReference Include="FSharp.Core" Version="8.0.100" />
   </ItemGroup>
-  <Target Name="BeforeBuild">
+  <!--<Target Name="BeforeBuild">
     <MSBuild Projects="..\ExcelProvider.DesignTime\ExcelProvider.DesignTime.fsproj" Targets="Restore" />
     <MSBuild Projects="..\ExcelProvider.DesignTime\ExcelProvider.DesignTime.fsproj" Targets="Build" Properties="Configuration=$(Configuration);TargetFramework=netstandard2.0" />
-  </Target>
+  </Target>-->
   <Target Name="AfterBuild">
-    <CreateItem
-        Include=
-            "&#xD;&#xA;        ..\ExcelProvider.DesignTime\bin\$(Configuration)\netstandard2.0\*.dll;
-             &#xD;&#xA;        ..\ExcelProvider.DesignTime\bin\$(Configuration)\netstandard2.0\*.pdb">
+    <CreateItem Include="&#xD;&#xA;        ..\ExcelProvider.DesignTime\bin\$(Configuration)\netstandard2.0\*.dll;&#xD;&#xA;             &#xD;&#xA;        ..\ExcelProvider.DesignTime\bin\$(Configuration)\netstandard2.0\*.pdb">
       <Output TaskParameter="Include" ItemName="DesignTimeBinaries3" />
     </CreateItem>
-    <Copy SourceFiles="@(DesignTimeBinaries3)"
-          DestinationFolder="$(OutputPath)/../typeproviders/fsharp41/netstandard2.0" />
+    <Copy SourceFiles="@(DesignTimeBinaries3)" DestinationFolder="$(OutputPath)/../typeproviders/fsharp41/netstandard2.0" />
   </Target>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <!--<Import Project="..\..\.paket\Paket.Restore.targets" />-->
 </Project>

@@ -1,4 +1,3 @@
-G:\coldfar_py\ExcelProvider\src\ExcelProvider.Runtime\bin\Release\netstandard2.0\FSharp.Core.xml
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.Runtime\bin\Release\netstandard2.0\ExcelProvider.Runtime.deps.json
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.Runtime\bin\Release\netstandard2.0\ExcelProvider.Runtime.dll
 G:\coldfar_py\ExcelProvider\src\ExcelProvider.Runtime\bin\Release\netstandard2.0\ExcelProvider.Runtime.pdb
