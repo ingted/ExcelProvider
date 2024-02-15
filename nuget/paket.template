@@ -1,0 +1,38 @@
+type file
+id ExcelProvider
+version
+    2.0.0
+authors
+    Steffen Forkmann, Gustavo Guerra, JohnDoeKyrgyz, Don Syme, Quintus Marais
+owners
+    Steffen Forkmann, Gustavo Guerra, JohnDoeKyrgyz, Don Syme, Quintus Marais
+projectUrl
+    http://github.com/fsprojects/ExcelProvider
+iconUrl
+    https://raw.githubusercontent.com/fsprojects/ExcelProvider/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/fsprojects/ExcelProvider/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+tags
+    F# fsharp typeproviders Excel
+summary
+    This library implements an Excel type provider for Net Standard 2.0.
+description
+    This library implements an Excel type provider for Net Standard 2.0.
+tags
+    F# fsharp typeproviders Excel
+releaseNotes
+    Add ability to read from stream not only from file
+
+files
+    ../bin/ExcelProvider.Runtime/netstandard2.0/ExcelProvider.Runtime.* ==> lib/netstandard2.0
+    ../bin/ExcelProvider.Runtime/typeproviders/fsharp41/netstandard2.0/*.dll ==> typeproviders/fsharp41/netstandard2.0
+references
+    ExcelProvider.Runtime.dll
+dependencies
+  framework: netstandard2.0
+  FSharp.Core >= LOCKEDVERSION
+  ExcelDataReader >= LOCKEDVERSION
+  ExcelDataReader.DataSet >= LOCKEDVERSION
+  System.Text.Encoding.CodePages >= LOCKEDVERSION
